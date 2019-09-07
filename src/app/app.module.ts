@@ -11,14 +11,17 @@ import { SearchBookComponent } from './search-book/search-book.component';
 
 //form 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
- 
+import { HttpClientModule } from '@angular/common/http'; 
+
 //routes
 import { AppRoutingModule } from './app-routing.module';
+import { SearchResultBooksComponent } from './search-result-books/search-result-books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchBookComponent
+    SearchBookComponent,
+    SearchResultBooksComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { AppRoutingModule } from './app-routing.module';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

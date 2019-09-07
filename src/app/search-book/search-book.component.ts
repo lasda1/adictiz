@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Books } from '../model/Book';
+import { BookSearchApiService } from '../service/book-search-api.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'Adz-search-book',
@@ -8,14 +11,24 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class SearchBookComponent implements OnInit {
 
-  constructor() { }
+  bookList:Books[] =[]
+  totalBooks:number
+  kind:string
+  constructor(private api:BookSearchApiService,private router :Router) { }
 
   ngOnInit() {
   }
   bookSearchInput = new FormControl('', [
     Validators.required, 
   ]);
+  getAllBooksByName(name){
+    this.api.getBooksByName(name).then(books=>{
+      this.bookList=books.items;
+      this.totalBooks=books.totalItems;
+      console.log(this.bookList)
+    })
+  }
   onBookChange() {
-    console.log(this.bookSearchInput.value);
+    this.router.navigate(['/books/', this.bookSearchInput.value]);
   } 
 }
