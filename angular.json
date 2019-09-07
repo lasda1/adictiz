@@ -120,6 +120,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "AdzBook"
+    }
+  },
+  "defaultProject": "AdzBook",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

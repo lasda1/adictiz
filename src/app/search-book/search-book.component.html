@@ -1,0 +1,8 @@
+<mat-form-field class="book-search-input">
+    <mat-label>Chercher un livre</mat-label>
+    <input matInput placeholder="Livre" [formControl]="bookSearchInput"  (change)="onBookChange()" />
+    <mat-hint>appuyez sur Entrée pour chercher</mat-hint>
+    <mat-error *ngIf="bookSearchInput.hasError('required')">
+      nom du livre est obligatoire   
+    </mat-error>   
+</mat-form-field> 
