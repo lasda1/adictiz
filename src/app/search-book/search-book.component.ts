@@ -21,13 +21,7 @@ export class SearchBookComponent implements OnInit {
   bookSearchInput = new FormControl('', [
     Validators.required, 
   ]);
-  getAllBooksByName(name){
-    this.api.getBooksByName(name).then(books=>{
-      this.bookList=books.items;
-      this.totalBooks=books.totalItems;
-      console.log(this.bookList)
-    })
-  }
+
   onBookChange() {
     this.router.navigate(['/books/', this.bookSearchInput.value]);
   } 

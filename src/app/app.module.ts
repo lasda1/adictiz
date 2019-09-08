@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 //material
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './materials';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 //components
 import { AppComponent } from './app.component';
@@ -16,12 +17,16 @@ import { HttpClientModule } from '@angular/common/http';
 //routes
 import { AppRoutingModule } from './app-routing.module';
 import { SearchResultBooksComponent } from './search-result-books/search-result-books.component';
+import { EllipsisPipe } from './ellipsis-pipe';
+import { BookDetailDialogComponent } from './search-result-books/book-detail-dialog/book-detail-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBookComponent,
-    SearchResultBooksComponent
+    SearchResultBooksComponent,
+    EllipsisPipe,
+    BookDetailDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +35,12 @@ import { SearchResultBooksComponent } from './search-result-books/search-result-
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule 
+    
   ],
   providers: [],
+  entryComponents: [BookDetailDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
