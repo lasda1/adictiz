@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { BookDetailDialogComponent } from './book-detail-dialog/book-detail-dialog.component';
 import {Location} from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'Adz-search-result-books',
@@ -27,7 +28,8 @@ export class SearchResultBooksComponent implements OnInit {
     private router :Router,
     private fb: FormBuilder,
     public dialog: MatDialog,
-    private _location: Location
+    private _location: Location,
+    private ts: TranslateService 
   ) {
     this.name = this.route.snapshot.paramMap.get('name');
    }
@@ -37,7 +39,6 @@ export class SearchResultBooksComponent implements OnInit {
       filterName : '',
       filterSelect: ''
     })
-    console.log(this.name)
     this.getAllBooksByName(this.name);
     this.onFilterNameChange();
     this.onFilterSelectChange();
@@ -104,7 +105,8 @@ export class SearchResultBooksComponent implements OnInit {
   }
 
   getAllBooksByName(name){
-    this.api.getBooksByName(name).then(books=>{
+    let browserLang = this.ts.getBrowserLang();
+    this.api.getBooksByName(name+'&langRestrict='+browserLang).then(books=>{
       this.bookList=books.items;
       this.standardList=books.items;
       this.totalBooks=books.totalItems;

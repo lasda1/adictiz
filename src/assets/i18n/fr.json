@@ -1,0 +1,11 @@
+{
+    "book-search.placeholder": "Chercher un livre",
+    "book-search.hint": "appuyez sur Entrée pour chercher",
+    "book-search.error": "nom du livre est obligatoire",
+    "book-search.select":"Seléctionner un livre",
+    "back":"retour",
+    "no-description":"pas de description disponible",
+    "authors":"Auteurs",
+    "category":"categorie",
+    "title":"Titre"
+  }

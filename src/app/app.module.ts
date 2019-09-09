@@ -12,7 +12,6 @@ import { SearchBookComponent } from './search-book/search-book.component';
 
 //form 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; 
 
 //routes
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +19,11 @@ import { SearchResultBooksComponent } from './search-result-books/search-result-
 import { EllipsisPipe } from './ellipsis-pipe';
 import { BookDetailDialogComponent } from './search-result-books/book-detail-dialog/book-detail-dialog.component';
 
+//translation
+
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +40,13 @@ import { BookDetailDialogComponent } from './search-result-books/book-detail-dia
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     FlexLayoutModule 
     
   ],
@@ -44,3 +55,6 @@ import { BookDetailDialogComponent } from './search-result-books/book-detail-dia
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

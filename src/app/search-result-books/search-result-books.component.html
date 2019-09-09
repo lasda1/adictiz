@@ -1,10 +1,10 @@
 <div  [formGroup]="bookForm">
   <div class="form-group">
     <mat-form-field class="full-width">
-      <input matInput placeholder="Rechercher un livre" formControlName="filterName" value="">
+      <input matInput placeholder="{{ 'book-search.placeholder' | translate }}" formControlName="filterName" value="">
     </mat-form-field>
     <mat-form-field class="full-width">
-      <mat-label>Seléctionner un livre</mat-label>
+      <mat-label>{{ 'book-search.select' | translate }}</mat-label>
       <mat-select formControlName="filterSelect">
           <mat-option  [value]="">
               
@@ -27,13 +27,13 @@
       </div>
       <div class="overlay">
         <div class="text" (click)="openDetailDialog(book)">
-          <p>Description :{{book.volumeInfo.description ? (book.volumeInfo.description | ellipsis:600) : 'Pas de description'}}</p>
+          <p>Description :{{book.volumeInfo.description ? (book.volumeInfo.description | ellipsis:600) : 'no-description'| translate}}</p>
         </div>
       </div>
     </mat-card>
    
   </div>
   <div class="return-button">
-    <button mat-raised-button color="primary" (click)='backClicked()'>Back</button>
+    <button mat-raised-button color="primary" (click)='backClicked()'>{{ 'back' | translate }}</button>
   </div>
 </div>

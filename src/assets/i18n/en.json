@@ -1,0 +1,11 @@
+{
+    "book-search.placeholder": "Search a book",
+    "book-search.hint": "Hit enter to search for a book",
+    "book-search.error": "Name is required",
+    "book-search.select":"Select a book",
+    "back":"back",
+    "no-description":"No available description",
+    "authors":"Authors",
+    "category":"Category",
+    "title":"Title"
+  }
